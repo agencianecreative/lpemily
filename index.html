@@ -11,6 +11,7 @@
 .gradient-bg { background: linear-gradient(135deg, #1a1a1a, #2d1b3d, #1a1a1a); }
 .gradient-soft { background: linear-gradient(to bottom, #faf5ff, #ffffff); }
 .card-hover:hover { border-color: #A478BD; box-shadow: 0 10px 25px rgba(164,120,189,0.25);} 
+body[data-gate="1"] > section:not(:first-of-type){ display:none; }
 </style>
 </head>
   <!-- Meta Pixel Code -->
@@ -37,7 +38,7 @@ src="https://www.facebook.com/tr?id=870531828830871&ev=PageView&noscript=1"
   async
   defer
 ></script>
-<body class="font-sans antialiased bg-white text-gray-900">
+<body class="font-sans antialiased bg-white text-gray-900" data-gate="1" data-gate-delay-ms="105000">
 
 <!-- HERO SECTION -->
 <section class="relative gradient-bg text-white overflow-hidden py-20 px-6 animate-fade">
@@ -215,6 +216,14 @@ A minha missão é clara: te conectar com oportunidades reais e te preparar para
 
   </div>
 </section>
+
+<script>
+(function(){
+  var a=document.body.getAttribute('data-gate-delay-ms');
+  var d=parseInt(a||'105000',10);
+  setTimeout(function(){document.body.removeAttribute('data-gate');}, d);
+})();
+</script>
 
 </body>
 </html>
